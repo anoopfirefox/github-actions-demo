@@ -1,0 +1,9 @@
+name: "CI/CD for Nginx Web App using GHA"
+
+on:
+  push:
+    branches: ["main"]
+    #paths-ignore:
+    # - "src/*"
+  pull_request:
+    branches: ["main"] 
