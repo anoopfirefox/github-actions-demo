@@ -1,4 +1,4 @@
-FROM ubuntu:22:04
+FROM ubuntu:22.04
 LABEL MAINTAINER="Anoop P Hegde anoop.techstorm@gmail.com"
 RUN apt update && apt install -y nginx
 COPY src/index.html /usr/share/nginx/html
