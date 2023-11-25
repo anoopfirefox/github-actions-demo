@@ -34,7 +34,7 @@ jobs:
       - name: Build Image and Push to Docker Hub
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./Nginx-Deployment
           file: ./Dockerfile
           push: true
           tags: anoophegde1995/nginx-ubuntu:latest  
