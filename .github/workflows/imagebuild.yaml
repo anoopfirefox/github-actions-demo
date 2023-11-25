@@ -37,5 +37,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nginx-ubuntu:latest  
+          tags: anoophegde1995/nginx-ubuntu:latest  
         
