@@ -11,7 +11,7 @@ on:
   
 env:
   STORAGE_ACCOUNT_NAME: remotebackendshared
-  RESOURCE_GROUP_NAME: prod-rg
+  RESOURCE_GROUP_NAME: testgha-rg
   CONTAINER_NAME: terraformstate
   BLOB_NAME: gha-terraform.tfstate
   
