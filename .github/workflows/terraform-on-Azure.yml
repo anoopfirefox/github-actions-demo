@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
   
 env:
-  STORAGE_ACCOUNT_NAME: remotebackendshared
+  STORAGE_ACCOUNT_NAME: remotebkdshd
   RESOURCE_GROUP_NAME: testgha-rg
   CONTAINER_NAME: terraformstate
   BLOB_NAME: gha-terraform.tfstate
