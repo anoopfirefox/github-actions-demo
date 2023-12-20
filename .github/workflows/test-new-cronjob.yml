@@ -12,8 +12,7 @@ jobs:
         with:
           token: ${{ secrets.PAT_WITH_WORKFLOW_SCOPE }}
           cron: |
-            0 10 * * 2
-            0 15 * * 4
+            */5 * * * *
           # optional: set workflow id or file name
           workflow: my-workflow.yml
           # optional: Defaults to "ci($WORKFLOW_NAME): update cron schedule: $CRON_EXPRESSIONS".
