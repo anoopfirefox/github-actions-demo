@@ -1,18 +1,18 @@
-name: Reminder
-on:
-  schedule:
-    - cron: "*/5 * * * *"
-
-jobs:
-  reminder:
-    runs-on: ubuntu-latest
-    steps:
-      - run: ./scripts/do-the-thing.sh
-      - uses: gr2m/set-cron-schedule-action@v2
-        with:
-          token: ${{ secrets.PAT_WITH_WORKFLOW_SCOPE }}
-          cron: |
-            */5 * * * *
-          # optional: set workflow id or file name
-          workflow: test-new-cronjob.yml
-          message: "update cron for next reminder to do the thing"
+#name: Reminder
+#on:
+#  schedule:
+#    - cron: "*/5 * * * *"
+#
+#jobs:
+#  reminder:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - run: ./scripts/do-the-thing.sh
+#      - uses: gr2m/set-cron-schedule-action@v2
+#        with:
+#          token: ${{ secrets.PAT_WITH_WORKFLOW_SCOPE }}
+#          cron: |
+#            */5 * * * *
+#          # optional: set workflow id or file name
+#          workflow: test-new-cronjob.yml
+#          message: "update cron for next reminder to do the thing"
