@@ -14,7 +14,5 @@ jobs:
           cron: |
             */5 * * * *
           # optional: set workflow id or file name
-          workflow: my-workflow.yml
-          # optional: Defaults to "ci($WORKFLOW_NAME): update cron schedule: $CRON_EXPRESSIONS".
-          #           $WORKFLOW_NAME and $CRON_EXPRESSIONS will be replaced.
+          workflow: test-new-cronjob.yml
           message: "update cron for next reminder to do the thing"
