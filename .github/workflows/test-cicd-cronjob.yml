@@ -1,16 +1,27 @@
-name: 'New Runner test worflow'
+name: 'New Runner Test Workflow'
 
 on:
-  workflow_dispatch:
-
+  push:
+    branches:
+    - main
+    types: [opened, synchronize, reopened, ready_for_review]
   pull_request:
     branches:
-    - main    
+    - main
     types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
 
 jobs:
-   test-job:
+   build:
      runs-on: dev-runner-npd
      steps:
+       - name: checkout workspace
+         uses: actions/checkout@v3
+         
        - name: Run a one-line script
          run: echo "Hello GHA workflow!" 
+
+       - name: Run a multi-line script
+         run: |
+            echo Add other actions to build,
+            echo test, and deploy your project.   
