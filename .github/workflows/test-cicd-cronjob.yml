@@ -1,20 +1,16 @@
-#name: 'Depv2 CI/CD Cronbased workflow'
-#
-#on:
-#  # Triggers the workflow every 5 minutes
-#  schedule:
-#    - cron: "*/5 * * * *"
-#  workflow_dispatch:
-#
-#  pull_request:
-#    branches:
-#    - main    
-#    types: [opened, synchronize, reopened, ready_for_review]
-#
-#jobs:
-#   cron:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Run a one-line script
-#         run: echo "Hello GHA workflow!" 
-#
+name: 'New Runner test worflow'
+
+on:
+  workflow_dispatch:
+
+  pull_request:
+    branches:
+    - main    
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+   test-job:
+     runs-on: dev-runner-npd
+     steps:
+       - name: Run a one-line script
+         run: echo "Hello GHA workflow!" 
