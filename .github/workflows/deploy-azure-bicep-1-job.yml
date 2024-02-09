@@ -72,5 +72,5 @@ jobs:
         template: 01-bicep-webapp/webapp-linux.bicep
         parameters: webAppName=${{ env.WEBAPP_NAME }}
         failOnStdErr: false
-        scope: resourceGroup
+        scope: resourcegroup
         region: westeurope
