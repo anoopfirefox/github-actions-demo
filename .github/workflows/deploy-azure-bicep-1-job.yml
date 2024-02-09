@@ -53,6 +53,7 @@ jobs:
       with:
         inlineScript: |
           az version
+          az login
           az group create -n rg-bicep-github-actions-29 -l westeurope
 
     - name: Preview Changes fron Bicep
