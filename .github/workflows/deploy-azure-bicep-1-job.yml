@@ -53,7 +53,7 @@ jobs:
       with:
         inlineScript: |
           az version
-          az group create -n ${{ env.RESOURCE_GROUP }} -l westeurope
+          az group create -n $RESOURCE_GROUP -l westeurope
 
     - name: Preview Changes fron Bicep
       uses: Azure/deployment-what-if-action@v1.0.0
