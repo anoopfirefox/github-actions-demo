@@ -73,3 +73,4 @@ jobs:
         parameters: webAppName=${{ env.WEBAPP_NAME }}
         failOnStdErr: false
         scope: subscription
+        region: westeurope
