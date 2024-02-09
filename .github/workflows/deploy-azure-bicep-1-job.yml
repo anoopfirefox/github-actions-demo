@@ -1,0 +1,51 @@
+name: Deploy-Azure-Bicep-1-job
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+env:
+  RESOURCE_GROUP: rg-bicep-github-actions-29
+  WEBAPP_NAME: bicep-029
+
+
+jobs:
+  preview-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Login to Azure
+      uses: Azure/login@v1.4.3
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Create Azure Resource Group
+      uses: Azure/cli@v1.0.6
+      with:
+        inlineScript: |
+          az version
+          az group create -n $RESOURCE_GROUP -l westeurope
+
+    - name: Preview Changes fron Bicep
+      uses: Azure/deployment-what-if-action@v1.0.0
+      with:
+        subscription: ${{ secrets.ARM_SUBSCRIPTION_ID  }}
+        resourceGroup: $RESOURCE_GROUP 
+        templateFile: 01-bicep-webapp/webapp-linux.bicep 
+        additionalParameters: webAppName=$WEBAPP_NAME
+        
+    - name: Deploy Bicep to Azure
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        resourceGroupName: ${{ env.RESOURCE_GROUP }}
+        template: 01-bicep-webapp/webapp-linux.bicep
+        parameters: webAppName=${{ env.WEBAPP_NAME }}
+        failOnStdErr: false
+        scope: subscription
