@@ -24,7 +24,7 @@ jobs:
     - name: Install Azure Cli
       run: |  
         sudo apt-get update -y
-        sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
+        sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg -y
         sudo mkdir -p /etc/apt/keyrings
         curl -sLS https://packages.microsoft.com/keys/microsoft.asc |
              gpg --dearmor |
