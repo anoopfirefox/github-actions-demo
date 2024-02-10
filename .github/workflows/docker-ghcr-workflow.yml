@@ -32,9 +32,9 @@ jobs:
 
     - name: Install cosign
       if: github.event_name != 'pull_request'
-      uses: sigstore/cosign-installer@v3.4.0
-      with:
-        cosign-release: 'v3.4.0'
+      uses: sigstore/cosign-installer@v3.0.2
+      #with:
+      #  cosign-release: 'v3.4.0'
 
     - name: Check install!
       run: cosign version    
