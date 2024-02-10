@@ -65,15 +65,15 @@ jobs:
         tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} 
         labels: ${{ steps.meta.outputs.labels }}
 
-    - name: Create the signing keypair
-      if: ${{ github.event_name != 'pull_request' }}
-      run: cosign generate-key-pair > ${{ secrets.SIGNING_SECRET }} 
-      
-    - name: Write the signing key to disk 
-      run: echo "${{ secrets.SIGNING_SECRET }}" > cosign.key  
-   
-    - name: Sign the published Docker image
-      if: ${{ github.event_name != 'pull_request' }}
-      env:
-        COSIGN_EXPERIMENTAL: "true"
-      run: cosign sign --key cosign.key ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
+#    - name: Create the signing keypair
+#      if: ${{ github.event_name != 'pull_request' }}
+#      run: cosign generate-key-pair > ${{ secrets.SIGNING_SECRET }} 
+#      
+#    - name: Write the signing key to disk 
+#      run: echo "${{ secrets.SIGNING_SECRET }}" > cosign.key  
+#   
+#    - name: Sign the published Docker image
+#      if: ${{ github.event_name != 'pull_request' }}
+#      env:
+#        COSIGN_EXPERIMENTAL: "true"
+#      run: cosign sign --key cosign.key ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
