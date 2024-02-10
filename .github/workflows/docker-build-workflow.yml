@@ -1,10 +1,10 @@
-name: 050-docker-build-workflow
+name: Docker Build Workflow
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  #push:
+  #  branches: [ main ]
+  #pull_request:
+  #  branches: [ main ]
 
   workflow_dispatch:
 
