@@ -1,0 +1,21 @@
+name: 050-docker-build-workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build-container:
+    runs-on: "k8s-gha-runner"
+
+    steps:
+    - name: Checkout the directory    
+      uses: actions/checkout@v4.1.1
+    
+    - name: Build the Docker image
+      working-directory: 03-app-dotnet
+      run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
